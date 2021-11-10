@@ -1,0 +1,43 @@
+name: .NET
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    # - name: Setup .NET Core 2.1 
+    #   uses: actions/setup-dotnet@v1 
+    #   with: 
+    #     dotnet-version: 2.1.x 
+    # - name: Setup .NET Core 3.1 
+    #   uses: actions/setup-dotnet@v1 
+    #   with: 
+    #     dotnet-version: 3.1.x
+    - name: Setup .NET 5
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    # - name: Restore dependencies
+    #   run: dotnet restore
+    # - name: Build
+    #   run: dotnet build --no-restore
+    # - name: Test
+    #   run: dotnet test --no-build --verbosity normal
+    # - name: install nunit
+      # run: dotnet add package NUnit --version 3.13.2
+      # run: dotnet add pheval.Tests/pheval.Tests.csproj package MSBuild.NUnit --version 1.0.2
+
+    - name: Build
+      run: |
+        msbuild /p:TargetFramework=net47 -p:Configuration=Release pheval/pheval.csproj
+        msbuild /p:TargetFramework=net47 -p:Configuration=Release /t:test pheval.Tests/pheval.Tests.csproj 
+    - name: Test
+      run: nunit-console.exe /nologo pheval.Tests/bin/Release/pheval.Tests.dll
