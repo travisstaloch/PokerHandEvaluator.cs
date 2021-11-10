@@ -1,0 +1,25 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pheval", "pheval\pheval.csproj", "{042EE363-4B6A-442F-8CEB-BC157991C4C3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D2F54048-43B1-410A-92AC-7FA5DC3BED36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pheval.Tests", "pheval.Tests\pheval.Tests.csproj", "{DB7AB399-DD13-4168-A09E-28936EDD337E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{042EE363-4B6A-442F-8CEB-BC157991C4C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{042EE363-4B6A-442F-8CEB-BC157991C4C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{042EE363-4B6A-442F-8CEB-BC157991C4C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{042EE363-4B6A-442F-8CEB-BC157991C4C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB7AB399-DD13-4168-A09E-28936EDD337E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB7AB399-DD13-4168-A09E-28936EDD337E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB7AB399-DD13-4168-A09E-28936EDD337E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB7AB399-DD13-4168-A09E-28936EDD337E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
