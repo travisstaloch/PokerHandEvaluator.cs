@@ -31,7 +31,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Tests.cs" />
+    <Compile Include="KnownRanks.cs" />
+    <Compile Include="CompareRanks.cs" />
+    <Compile Include="Simple.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

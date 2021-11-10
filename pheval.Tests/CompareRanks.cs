@@ -2,48 +2,12 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Linq;
-using pheval;
 
 namespace pheval.Tests
 {
-    [TestFixture()]
-    public class Test
+    [TestFixture]
+    public class CompareRanks
     {
-        [Test]
-        public void Simple() 
-        {
-            {
-                // convert Card to and from string
-                Assert.AreEqual(0, (new Card("2c")).id);
-                Assert.AreEqual(4, (new Card("3c")).id);
-                Assert.AreEqual("2c", (new Card(0)).ToString());
-                // convert 'hand' of Cards to and from string
-                var ids = new byte[] { 0, 4, 8, 12, 16 };
-                var hand = "2c3c4c5c6c";
-                Assert.AreEqual(hand, Card.CardsToString(Card.Cards(ids)));
-                Assert.AreEqual(ids, Card.Cards(hand).Select(c => c.id));
-            }
-            // check a few rank categories, their descriptions, and the rank description
-            {
-                int rank = Eval.Eval5String("ackcqcjctc");
-                Assert.AreEqual(Rank.Category.StraightFlush, Rank.GetCategory(rank));
-                Assert.AreEqual("Straight Flush", Rank.DescribeRankCategory(rank));
-                Assert.AreEqual("Royal Flush", Rank.DescribeRank(rank));
-            }
-            {
-                int rank = Eval.Eval5String("kcqcjctc9c");
-                Assert.AreEqual(Rank.Category.StraightFlush, Rank.GetCategory(rank));
-                Assert.AreEqual("Straight Flush", Rank.DescribeRankCategory(rank));
-                Assert.AreEqual("King-High Straight Flush", Rank.DescribeRank(rank));
-            }
-            {
-                int rank = Eval.Eval5String("7s5s4s3s2d");
-                Assert.AreEqual(Rank.Category.HighCard, Rank.GetCategory(rank));
-                Assert.AreEqual("High Card", Rank.DescribeRankCategory(rank));
-                Assert.AreEqual("Seven-High", Rank.DescribeRank(rank));
-            }
-        }
-
         [DllImport("pheval")]
         public static extern int evaluate_5cards(int a, int b, int c, int d, int e);
         [DllImport("pheval")]
@@ -52,7 +16,7 @@ namespace pheval.Tests
         public static extern int evaluate_7cards(int a, int b, int c, int d, int e, int f, int g);
 
         [Test]
-        public void CompareRanks1K()
+        public void Random1K()
         {
             Random rnd = new Random();
             foreach (int _ in Enumerable.Range(0, 1000))
