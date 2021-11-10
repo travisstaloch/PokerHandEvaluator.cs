@@ -16,21 +16,21 @@
 
 namespace pheval
 {
-    public enum RankCategory
+    public class Rank
     {
-        STRAIGHT_FLUSH = 1,
-        FOUR_OF_A_KIND,
-        FULL_HOUSE,
-        FLUSH,
-        STRAIGHT,
-        THREE_OF_A_KIND,
-        TWO_PAIR,
-        ONE_PAIR,
-        HIGH_CARD,
-    }
-    class Rank
-    {
-        static string[] rank_category_description = {
+        public enum Category
+        {
+            STRAIGHT_FLUSH = 1,
+            FOUR_OF_A_KIND,
+            FULL_HOUSE,
+            FLUSH,
+            STRAIGHT,
+            THREE_OF_A_KIND,
+            TWO_PAIR,
+            ONE_PAIR,
+            HIGH_CARD,
+        }
+        static string[] category_description = {
           "",
           "Straight Flush",
           "Four of a Kind",
@@ -43,33 +43,33 @@ namespace pheval
           "High Card",
         };
 
-        public static RankCategory get_rank_category(int rank)
+        public static Category get_category(int rank)
         {
-            if (rank > 6185) return RankCategory.HIGH_CARD;        // 1277 high card
-            if (rank > 3325) return RankCategory.ONE_PAIR;         // 2860 one pair
-            if (rank > 2467) return RankCategory.TWO_PAIR;         //  858 two pair
-            if (rank > 1609) return RankCategory.THREE_OF_A_KIND;  //  858 three-kind
-            if (rank > 1599) return RankCategory.STRAIGHT;         //   10 straights
-            if (rank > 322) return RankCategory.FLUSH;            // 1277 flushes
-            if (rank > 166) return RankCategory.FULL_HOUSE;       //  156 full house
-            if (rank > 10) return RankCategory.FOUR_OF_A_KIND;   //  156 four-kind
-            return RankCategory.STRAIGHT_FLUSH;                    //   10 straight-flushes
+            if (rank > 6185) return Category.HIGH_CARD;        // 1277 high card
+            if (rank > 3325) return Category.ONE_PAIR;         // 2860 one pair
+            if (rank > 2467) return Category.TWO_PAIR;         //  858 two pair
+            if (rank > 1609) return Category.THREE_OF_A_KIND;  //  858 three-kind
+            if (rank > 1599) return Category.STRAIGHT;         //   10 straights
+            if (rank > 322) return Category.FLUSH;            // 1277 flushes
+            if (rank > 166) return Category.FULL_HOUSE;       //  156 full house
+            if (rank > 10) return Category.FOUR_OF_A_KIND;   //  156 four-kind
+            return Category.STRAIGHT_FLUSH;                    //   10 straight-flushes
         }
 
-        public static string describe_rank_category(RankCategory category)
+        public static string describe_category(Category category)
         {
-            return rank_category_description[(int)category];
+            return category_description[(int)category];
+        }
+
+        public static string describe_rank_category(int rank)
+        {
+            return category_description[(int)get_category(rank)];
         }
 
         public static string describe_rank(int rank)
         {
-            return rank_category_description[(int)get_rank_category(rank)];
+           return RankDesc.rank_description[rank,1];
         }
-
-        //public static string describe_rank(int rank)
-        //{
-        //    return rank_description[rank][1];
-        //}
 
         //public static string describe_sample_hand(int rank)
         //{
@@ -78,10 +78,10 @@ namespace pheval
 
         public static bool is_flush(int rank)
         {
-            switch (get_rank_category(rank))
+            switch (get_category(rank))
             {
-                case RankCategory.STRAIGHT_FLUSH:
-                case RankCategory.FLUSH:
+                case Category.STRAIGHT_FLUSH:
+                case Category.FLUSH:
                     return true;
                 default:
                     return false;

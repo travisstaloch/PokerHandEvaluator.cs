@@ -40,6 +40,7 @@
     <Compile Include="Rank.cs" />
     <Compile Include="Hashtable6.cs" />
     <Compile Include="Hashtable7.cs" />
+    <Compile Include="7462.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

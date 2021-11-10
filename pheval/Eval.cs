@@ -41,7 +41,7 @@ namespace pheval
          * The rest of it represent the rank, ranged from 0-12.
          * 13 * 4 gives 52 ids.
          */
-        public static int eval5(byte a, byte b, byte c, byte d, byte e)
+        public static int Eval5(byte a, byte b, byte c, byte d, byte e)
         {
             // Console.WriteLine("a {0} b {1} c {2} d {3} e {4}", a, b, c, d, e);
             uint suit_hash = 0;
@@ -78,18 +78,18 @@ namespace pheval
             return Hashtable5.noflush5[hash];
         }
 
-        public static int eval5Ids(params byte[] ids) {
-            return eval5(ids[0], ids[1], ids[2], ids[3], ids[4]);
+        public static int Eval5Ids(params byte[] ids) {
+            return Eval5(ids[0], ids[1], ids[2], ids[3], ids[4]);
         }
 
-        public static int eval5Cards(params Card[] cards)
+        public static int Eval5Cards(params Card[] cards)
         {
-            return eval5(cards[0].id, cards[1].id, cards[2].id, cards[3].id, cards[4].id);
+            return Eval5(cards[0].id, cards[1].id, cards[2].id, cards[3].id, cards[4].id);
         }
         
-        public static int eval5String(string s) {
+        public static int Eval5String(string s) {
             Card[] hand = Card.Cards(s);
-            return eval5(hand[0].id, hand[1].id, hand[2].id, hand[3].id, hand[4].id);
+            return Eval5(hand[0].id, hand[1].id, hand[2].id, hand[3].id, hand[4].id);
         }
 
         /*
@@ -99,7 +99,7 @@ namespace pheval
          * The rest of it represent the rank, ranged from 0-12.
          * 13 * 4 gives 52 ids.
          */
-        public static int eval6(byte a, byte b, byte c, byte d, byte e, byte f)
+        public static int Eval6(byte a, byte b, byte c, byte d, byte e, byte f)
         {
             int suit_hash = 0;
 
@@ -137,19 +137,19 @@ namespace pheval
             return Hashtable6.noflush6[hash];
         }
 
-        public static int eval6Ids(params byte[] ids)
+        public static int Eval6Ids(params byte[] ids)
         {
-            return eval6(ids[0], ids[1], ids[2], ids[3], ids[4], ids[5]);
+            return Eval6(ids[0], ids[1], ids[2], ids[3], ids[4], ids[5]);
         }
 
-        public static int eval6Cards(params Card[] cards)
+        public static int Eval6Cards(params Card[] cards)
         {
-            return eval6(cards[0].id, cards[1].id, cards[2].id, cards[3].id, cards[4].id, cards[5].id);
+            return Eval6(cards[0].id, cards[1].id, cards[2].id, cards[3].id, cards[4].id, cards[5].id);
         }
 
-        public static int eval6String(string s) {
+        public static int Eval6String(string s) {
             Card[] hand = Card.Cards(s);
-            return eval6(hand[0].id, hand[1].id, hand[2].id, hand[3].id, hand[4].id, hand[5].id);
+            return Eval6(hand[0].id, hand[1].id, hand[2].id, hand[3].id, hand[4].id, hand[5].id);
         }
 
         /*
@@ -158,7 +158,7 @@ namespace pheval
          * The rest of it represent the rank, ranged from 0-12.
          * 13 * 4 gives 52 ids.
          */
-        public static int eval7(byte a, byte b, byte c, byte d, byte e, byte f, byte g)
+        public static int Eval7(byte a, byte b, byte c, byte d, byte e, byte f, byte g)
         {
             int suit_hash = 0;
 
@@ -199,20 +199,20 @@ namespace pheval
             return Hashtable7.noflush7[hash];
         }
 
-        public static int eval7Ids(params byte[] ids)
+        public static int Eval7Ids(params byte[] ids)
         {
-            return eval7(ids[0], ids[1], ids[2], ids[3], ids[4], ids[5], ids[6]);
+            return Eval7(ids[0], ids[1], ids[2], ids[3], ids[4], ids[5], ids[6]);
         }
 
-        public static int eval7Cards(params Card[] cards)
+        public static int Eval7Cards(params Card[] cards)
         {
-            return eval7(cards[0].id, cards[1].id, cards[2].id, cards[3].id, cards[4].id, cards[5].id, cards[6].id);
+            return Eval7(cards[0].id, cards[1].id, cards[2].id, cards[3].id, cards[4].id, cards[5].id, cards[6].id);
         }
 
 
-        public static int eval7String(string s) {
+        public static int Eval7String(string s) {
             Card[] hand = Card.Cards(s);
-            return eval7(hand[0].id, hand[1].id, hand[2].id, hand[3].id, hand[4].id, hand[5].id, hand[6].id);
+            return Eval7(hand[0].id, hand[1].id, hand[2].id, hand[3].id, hand[4].id, hand[5].id, hand[6].id);
         }
     }
 }
