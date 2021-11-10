@@ -26,23 +26,22 @@ namespace pheval.Tests
             // check a few rank categories, their descriptions, and the rank description
             {
                 int rank = Eval.Eval5String("ackcqcjctc");
-                Assert.AreEqual(Rank.Category.STRAIGHT_FLUSH, Rank.get_category(rank));
-                Assert.AreEqual("Straight Flush", Rank.describe_rank_category(rank));
-                Assert.AreEqual("Royal Flush", Rank.describe_rank(rank));
+                Assert.AreEqual(Rank.Category.StraightFlush, Rank.GetCategory(rank));
+                Assert.AreEqual("Straight Flush", Rank.DescribeRankCategory(rank));
+                Assert.AreEqual("Royal Flush", Rank.DescribeRank(rank));
             }
             {
                 int rank = Eval.Eval5String("kcqcjctc9c");
-                Assert.AreEqual(Rank.Category.STRAIGHT_FLUSH, Rank.get_category(rank));
-                Assert.AreEqual("Straight Flush", Rank.describe_rank_category(rank));
-                Assert.AreEqual("King-High Straight Flush", Rank.describe_rank(rank));
+                Assert.AreEqual(Rank.Category.StraightFlush, Rank.GetCategory(rank));
+                Assert.AreEqual("Straight Flush", Rank.DescribeRankCategory(rank));
+                Assert.AreEqual("King-High Straight Flush", Rank.DescribeRank(rank));
             }
             {
                 int rank = Eval.Eval5String("7s5s4s3s2d");
-                Assert.AreEqual(Rank.Category.HIGH_CARD, Rank.get_category(rank));
-                Assert.AreEqual("High Card", Rank.describe_rank_category(rank));
-                Assert.AreEqual("Seven-High", Rank.describe_rank(rank));
+                Assert.AreEqual(Rank.Category.HighCard, Rank.GetCategory(rank));
+                Assert.AreEqual("High Card", Rank.DescribeRankCategory(rank));
+                Assert.AreEqual("Seven-High", Rank.DescribeRank(rank));
             }
-
         }
 
         [DllImport("pheval")]
